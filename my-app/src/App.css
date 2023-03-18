@@ -9,25 +9,128 @@
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
+  
 }
 
 .log-table th {
   font-weight: bold;
   text-align: left;
+  background:  rgb(22, 110, 241);
+  padding-right: 10px;
 }
 
 .log-table tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background:  #777f85;
+}
+.log-table tbody tr:nth-of-type(odd) {
+  background:  rgb(165, 208, 211);
 }
 
-.log-table tfoot td {
-  border-top: none;
+.log-table tfoot {
+  border-top: solid;
   padding-top: 0.5rem;
   text-align: center;
+  
+}
+
+
+
+.delete-all {
+ 
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
 }
 
 .log-table tfoot input[type='text'] {
-  width: 100%;
-  padding: 0.5rem;
+  width: 95%;
+  padding: 1rem;
   font-size: 1rem;
   border-radius: 0.25rem;
+}
+body{
+  background-image:  url(./img/6.png);
+  background-size: cover;
+}
+
+div h1 {
+  padding-left: 755px;
+  font-size: 50px;
+  text-shadow: 3px 3px lightslategray;
+  
+}
+  
+
+
+input {
+  background: rgb(235, 235, 235);
+  color: black;
+  border: none;
+  padding: 0.55rem;
+  padding-right: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+img{
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding-right: 10px;
+  
+}
+
+select{
+  padding-bottom: 10px;
+  background-color: rgb(235, 235, 235);
+}
+
+textarea{
+  background: rgb(235, 235, 235);
+  padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+}@media (max-width: 600px) {
+  th,
+  td {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  td:before {
+    content: attr(data-title);
+    float: left;
+    font-weight: bold;
+  }
+  
+  td:nth-of-type(1):before { content: "Date"; }
+  td:nth-of-type(2):before { content: "Time"; }
+  td:nth-of-type(3):before { content: "input"; }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input[type="text"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  form button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 50px) {
+  .log-table {
+    display: inline-block;
+    max-width: 500px;
+  }
+}
