@@ -1,0 +1,33 @@
+.log-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.log-table th,
+.log-table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.log-table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+.log-table tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+.log-table tfoot td {
+  border-top: none;
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+.log-table tfoot input[type='text'] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
