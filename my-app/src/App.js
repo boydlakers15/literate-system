@@ -57,7 +57,7 @@ function LogTable() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLogData([...logData, { datetime1, selectedOption, input3, textarea, datetime, selectedOption1, input7, textarea  }]);
+    setLogData([...logData, { datetime1, selectedOption, input3, textarea, datetime, selectedOption1, input7, textarea1  }]);
     setDatetime1('');
     setSelectedOption('');
     setInput3('');
@@ -82,14 +82,14 @@ function LogTable() {
       <thead>
 
         <tr>
-          <th><img src='https://png.pngtree.com/png-clipart/20210718/original/pngtree-multi-colour-calendar-2022-png-image_6538236.jpg'></img>Date / morning</th>
+          <th><img src='https://png.pngtree.com/png-clipart/20210718/original/pngtree-multi-colour-calendar-2022-png-image_6538236.jpg' alt=''></img>Date / morning</th>
           <th><img src="https://png.pngtree.com/element_our/20200610/ourmid/pngtree-yesno-image_2239467.jpg" alt=""></img>Yes / No</th>
-          <th><img src='https://img.freepik.com/free-vector/diagram-showing-pain-scale-level-with-different-colors_1308-70492.jpg?w=900&t=st=1670429540~exp=1670430140~hmac=9dd03cdd93ad28e1bacb98930ca3c1db0841388d9b0b38998457728365c11ac0'></img>level</th>
-          <th><img src='https://img.freepik.com/free-vector/flat-design-spiral-book-mockup_23-2149567582.jpg?w=740&t=st=1670429604~exp=1670430204~hmac=51adac5256b716ee92bd0a7e8bcc31454f45617394e4fc2c8b881f46c76a7460'></img>Log</th>
-          <th><img src='https://img.freepik.com/free-photo/beautiful-sunset-beach-landscape-with-boat_1112-212.jpg?w=1380&t=st=1670429697~exp=1670430297~hmac=cb6dd2bc528ce55455d8f3cb4c3416a279cf97ceafaab5b3242a507e2c3175d6'></img>Evening</th>
-          <th><img src='https://png.pngtree.com/element_our/20200610/ourmid/pngtree-yesno-image_2239467.jpg'></img>Yes / No</th>
-          <th><img src='https://img.freepik.com/free-vector/diagram-showing-pain-scale-level-with-different-colors_1308-70492.jpg?w=900&t=st=1670429540~exp=1670430140~hmac=9dd03cdd93ad28e1bacb98930ca3c1db0841388d9b0b38998457728365c11ac0'></img>level</th>
-          <th><img src='https://img.freepik.com/free-vector/flat-design-spiral-book-mockup_23-2149567582.jpg?w=740&t=st=1670429604~exp=1670430204~hmac=51adac5256b716ee92bd0a7e8bcc31454f45617394e4fc2c8b881f46c76a7460'></img>Log</th>
+          <th><img src='https://img.freepik.com/free-vector/diagram-showing-pain-scale-level-with-different-colors_1308-70492.jpg?w=900&t=st=1670429540~exp=1670430140~hmac=9dd03cdd93ad28e1bacb98930ca3c1db0841388d9b0b38998457728365c11ac0' alt=''></img>level</th>
+          <th><img src='https://img.freepik.com/free-vector/flat-design-spiral-book-mockup_23-2149567582.jpg?w=740&t=st=1670429604~exp=1670430204~hmac=51adac5256b716ee92bd0a7e8bcc31454f45617394e4fc2c8b881f46c76a7460' alt=''></img>Log</th>
+          <th><img src='https://img.freepik.com/free-photo/beautiful-sunset-beach-landscape-with-boat_1112-212.jpg?w=1380&t=st=1670429697~exp=1670430297~hmac=cb6dd2bc528ce55455d8f3cb4c3416a279cf97ceafaab5b3242a507e2c3175d6' alt=''></img>Evening</th>
+          <th><img src='https://png.pngtree.com/element_our/20200610/ourmid/pngtree-yesno-image_2239467.jpg' alt=''></img>Yes / No</th>
+          <th><img src='https://img.freepik.com/free-vector/diagram-showing-pain-scale-level-with-different-colors_1308-70492.jpg?w=900&t=st=1670429540~exp=1670430140~hmac=9dd03cdd93ad28e1bacb98930ca3c1db0841388d9b0b38998457728365c11ac0' alt=''></img>level</th>
+          <th><img src='https://img.freepik.com/free-vector/flat-design-spiral-book-mockup_23-2149567582.jpg?w=740&t=st=1670429604~exp=1670430204~hmac=51adac5256b716ee92bd0a7e8bcc31454f45617394e4fc2c8b881f46c76a7460' alt=''></img>Log</th>
         </tr>
       </thead>
       <tbody>
@@ -118,8 +118,8 @@ function LogTable() {
           <td>
             <select value={selectedOption} onChange={handleSelectChange}>
               <option value="">Yes / No</option>
-              <option value="Option 1">Yes</option>
-              <option value="Option 2">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
 
             </select>
           </td>
@@ -132,6 +132,7 @@ function LogTable() {
           </td>
           <td><textarea
             onChange={handleTextareaChange}
+            value={textarea}
             name=""
             id=""
             cols="30"
@@ -147,8 +148,8 @@ function LogTable() {
           <td>
             <select value={selectedOption1} onChange={handleSelectChange1}>
               <option value="">Yes / No</option>
-              <option value="Option 1">Yes</option>
-              <option value="Option 2">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
 
             </select>
           </td>
