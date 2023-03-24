@@ -13,7 +13,7 @@ function LogTable() {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [input7, setInput7] = useState('');
   const [textarea1, setTextarea1] = useState('');
-
+  const [editing, setEditing] = useState(-1);
   // useEffect(() => {
   //   const storedData = localStorage.getItem('logData');
   //   if (storedData) {
@@ -57,7 +57,18 @@ function LogTable() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLogData([...logData, { datetime1, selectedOption, input3, textarea, datetime, selectedOption1, input7, textarea1  }]);
+  
+    const newLogEntry = { datetime1, selectedOption, input3, textarea, datetime, selectedOption1, input7, textarea1 };
+  
+    if (editing === -1) {
+      setLogData([...logData, newLogEntry]);
+    } else {
+      const newLogData = [...logData];
+      newLogData[editing] = newLogEntry;
+      setLogData(newLogData);
+      setEditing(-1);
+    }
+  
     setDatetime1('');
     setSelectedOption('');
     setInput3('');
@@ -66,14 +77,27 @@ function LogTable() {
     setSelectedOption1('');
     setInput7('');
     setTextarea1('');
-
-
   };
 
   const handleDeleteAll = () => {
     setLogData([]);
     localStorage.removeItem('logData');
+    setEditing(-1);
   };
+
+  const handleEdit = (index) => {
+    const entryToEdit = logData[index];
+    setDatetime1(entryToEdit.datetime1);
+    setSelectedOption(entryToEdit.selectedOption);
+    setInput3(entryToEdit.input3);
+    setTextarea(entryToEdit.textarea);
+    setDatetime(entryToEdit.datetime);
+    setSelectedOption1(entryToEdit.selectedOption1);
+    setInput7(entryToEdit.input7);
+    setTextarea1(entryToEdit.textarea1);
+    setEditing(index);
+  };
+
 
   return (
     <><div><h1 >Migraine List</h1></div>
@@ -93,18 +117,21 @@ function LogTable() {
         </tr>
       </thead>
       <tbody>
-        {logData.map((item, index) => (
-          <tr key={index}>
-            <td>{item.datetime1}</td>
-            <td>{item.selectedOption}</td>
-            <td>{item.input3}</td>
-            <td>{item.textarea}</td>
-            <td>{item.datetime}</td>
-            <td>{item.selectedOption1}</td>
-            <td>{item.input7}</td>
-            <td>{item.textarea1}</td>
-          </tr>
-        ))}
+      {logData.map((logEntry, index) => (
+      <tr key={index}>
+        <td>{logEntry.datetime1}</td>
+        <td>{logEntry.selectedOption}</td>
+        <td>{logEntry.input3}</td>
+        <td>{logEntry.textarea}</td>
+        <td>{logEntry.datetime}</td>
+        <td>{logEntry.selectedOption1}</td>
+        <td>{logEntry.input7}</td>
+        <td>{logEntry.textarea1}</td>
+        <td>
+          <button style={{ background: "lightyellow" }} onClick={() => handleEdit(index)}>Edit</button>
+        </td>
+      </tr>
+      ))}
 
       </tbody>
       <tfoot>
@@ -172,6 +199,10 @@ function LogTable() {
           <td>
             <button style={{ background: "lightgreen" }} onClick={handleSubmit}>Add</button>
           </td>
+          
+          {/* <td>
+            <button onClick={() => handleEdit()}>Edit</button>
+          </td> */}
           <td className="delete-all">
             <button style={{ background: "red" }} onClick={() => {
               const newTitle = window.confirm("Are you sure you want to delete this item?", handleDeleteAll);
