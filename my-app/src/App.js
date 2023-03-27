@@ -155,7 +155,11 @@ function LogTable() {
               type="number"
               value={input3}
               onChange={handleInput3Change}
-              placeholder="Level:" />
+              placeholder="Level:" 
+              min={'0'}
+              max={'10'} 
+              step={'0.5'}
+              />
           </td>
           <td><textarea
             onChange={handleTextareaChange}
@@ -185,7 +189,11 @@ function LogTable() {
               type="number"
               value={input7}
               onChange={handleInput7Change}
-              placeholder="Level:" />
+              placeholder="Level:" 
+              min={'0'}
+              max={'10'}
+              step={'0.5'}
+              />
           </td>
           <td><textarea
             onChange={handleTextarea1Change}
